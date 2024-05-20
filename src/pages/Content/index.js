@@ -1,9 +1,6 @@
 //storage helpers
 import { checkIfContentScriptIsInEffect } from "./modules/inEffect";
 
-//constant
-import { IS_CONTENT_SCRIPT_IN_EFFECT } from "../../contants";
-
 //utils
 import { observeDOM } from "../../utils";
 
@@ -44,7 +41,7 @@ const execute = () => {
 
     //9gag
     block9Gag();
-    console.log("*************");
+
     //twitter
     blockTwitter();
 }
