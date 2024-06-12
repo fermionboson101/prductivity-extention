@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Switch';
 
-import { updateIsContentInEffectInStorage } from "./helpers";
+import { setIsContentInEffectInStorage, getIsContentInEffectInStorage } from "./helpers";
 
 const Switch = () => {
-    const [isOn, setIsOn] = useState(true);
+    const [isContentInEffect, setIsContentInEffect] = useState(true);
 
     const onClick = () => {
-        setIsOn(prev => {
-            updateIsContentInEffectInStorage(!prev);
+        setIsContentInEffect(prev => {
+            setIsContentInEffectInStorage(!prev);
             return !prev;
         })
     }
 
+    const setContentInEffect = async () => {
+        const isEffect = await getIsContentInEffectInStorage();
+        console.log(isEffect, "****")
+        setIsContentInEffect(isEffect);
+    }
+
+    useEffect(() => {
+        console.log(isContentInEffect, "****")
+        setContentInEffect();
+    }, []);
+
     return <div>
-        <input type="checkbox" onClick={onClick} checked={isOn} />
+        <input type="checkbox" onClick={onClick} checked={isContentInEffect} />
     </div>;
 };
 
