@@ -13,6 +13,9 @@ import { block9Gag } from "./modules/9gag";
 //twitter
 import { blockTwitter } from "./modules/twitter";
 
+//linkedin
+import { blockLinkedin } from "./modules/Linkedin";
+
 //check if script is in effect
 
 
@@ -44,6 +47,9 @@ const execute = () => {
 
     //twitter
     blockTwitter();
+
+    //linkedin
+    blockLinkedin();
 }
 
 async function executor() {
